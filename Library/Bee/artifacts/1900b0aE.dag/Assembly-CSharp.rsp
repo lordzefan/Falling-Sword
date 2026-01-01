@@ -357,6 +357,7 @@
 "Assets/Script/PlayerHealth.cs"
 "Assets/Script/PlayerMovement.cs"
 "Assets/Script/SwordMovement.cs"
+"Assets/Script/SwordSpawner.cs"
 -langversion:9.0
 /deterministic
 /optimize+

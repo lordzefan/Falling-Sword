@@ -67,6 +67,7 @@
     <Compile Include="Assets\Script\SwordMovement.cs" />
     <Compile Include="Assets\Script\HitBox.cs" />
     <Compile Include="Assets\Script\PlayerHealth.cs" />
+    <Compile Include="Assets\Script\SwordSpawner.cs" />
     <Compile Include="Assets\Script\PlayerMovement.cs" />
   </ItemGroup>
   <ItemGroup>
