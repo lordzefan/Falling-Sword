@@ -5,8 +5,18 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour
 {
  public int curentHealth, maxHealth;
+ Animator animator;
+ CharacterController characterController;
 
-void Start()
+ public bool isDead;
+
+    void Awake()
+    {
+        animator = GetComponent<Animator>();
+        characterController = GetComponent<CharacterController>();
+    }
+
+    void Start()
 {
     curentHealth = maxHealth;
 }
@@ -14,9 +24,19 @@ void Start()
  public void TakeDamage(int damage)
  {
     curentHealth -= damage;
+    if(isDead)return;
     if (curentHealth <=0)
     {
-        print("player mati");
+        OnDead();
     }
  }
+
+ public void OnDead()
+    {
+        isDead = true;
+       print("player mati"); 
+       animator.Play("Death");
+        characterController.enabled = false;
+        GameManager.Instance.isGameOver = true;
+    }
 }

@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public float movementSpeed ;
     public float rotationSpeed ;
+    PlayerHealth playerHealth;
     Animator animator;
     CharacterController characterController;
     // Start is called before the first frame update
@@ -13,11 +14,13 @@ public class PlayerMovement : MonoBehaviour
     {
         characterController = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
+        playerHealth = GetComponent<PlayerHealth>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(playerHealth.isDead)return;
         float inputMovement = Input.GetAxisRaw("Horizontal");
         Vector3 characterMovement = new Vector3(inputMovement, 0, 0).normalized;
         characterController.Move(characterMovement *movementSpeed* Time.deltaTime);
