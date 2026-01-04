@@ -1406,11 +1406,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 1857749104402162048, guid: beb5ce93021f2a841a269e4ab55b489e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2059038750}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1857749104402595232, guid: beb5ce93021f2a841a269e4ab55b489e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1810973917}
+    - targetCorrespondingSourceObject: {fileID: 1857749104402595232, guid: beb5ce93021f2a841a269e4ab55b489e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1810973918}
   m_SourcePrefab: {fileID: 100100000, guid: beb5ce93021f2a841a269e4ab55b489e, type: 3}
 --- !u!1 &1810973912 stripped
 GameObject:
@@ -1430,8 +1436,148 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   curentHealth: 0
-  maxHealth: 100
+  maxHealth: 550
+  swordHitSfx: {fileID: 8300000, guid: 450209e30cc963a40ba4e96811cb8c62, type: 3}
+  playerHitSfx:
+  - {fileID: 8300000, guid: c87bf10763efa9649b9f59efcfde7098, type: 3}
+  - {fileID: 8300000, guid: c7ca63bc23984fb4c861b2d6a4a5854d, type: 3}
+  - {fileID: 8300000, guid: 1a3026cc00154144d82a277c41eb02cd, type: 3}
+  deadSfx: {fileID: 8300000, guid: 69e87ae1d23390e44aa38a9697e74634, type: 3}
+  bloodVfx: {fileID: 3586451909451489582, guid: cd98e971279021a4ca54c9e59338a449, type: 3}
+  bloodPoint: {fileID: 2059038750}
   isDead: 0
+--- !u!82 &1810973918
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1810973912}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &1810973922 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1857749104402162048, guid: beb5ce93021f2a841a269e4ab55b489e, type: 3}
+  m_PrefabInstance: {fileID: 1740281294}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2059038749
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2059038750}
+  m_Layer: 0
+  m_Name: Blood Point
+  m_TagString: Untagged
+  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2059038750
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2059038749}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.52, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1810973922}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
