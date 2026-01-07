@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -13,6 +14,16 @@ public class PlayerHealth : MonoBehaviour
  AudioSource audioSource;
  public GameObject bloodVfx;
  public Transform bloodPoint;
+ public Slider healthBar;
+ private int CurnHealth
+    {
+        get => curentHealth;
+        set
+        {
+            curentHealth = value;
+            healthBar.value = value;
+        }
+    }
 
  public bool isDead;
 
@@ -25,7 +36,8 @@ public class PlayerHealth : MonoBehaviour
 
     void Start()
 {
-    curentHealth = maxHealth;
+    healthBar.maxValue = maxHealth;
+    CurnHealth = maxHealth;
 }
 
  public void TakeDamage(int damage)
@@ -33,9 +45,9 @@ public class PlayerHealth : MonoBehaviour
     Instantiate(bloodVfx, bloodPoint.position, Quaternion.identity);
     audioSource.PlayOneShot(swordHitSfx);
     animator.Play("Hit");
-    curentHealth -= damage;
+    CurnHealth -= damage;
     if(isDead)return;
-    if (curentHealth <=0)
+    if (CurnHealth <=0)
     {
         audioSource.PlayOneShot(deadSfx);
         OnDead();

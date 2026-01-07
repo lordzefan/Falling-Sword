@@ -24,6 +24,7 @@ public class HitBox : MonoBehaviour
 
         if (other.CompareTag("Ground"))
         {
+            GameManager.Instance.AddScore(1);
             print("kena tanah");
             Destroy(swordObsticle);
         }
