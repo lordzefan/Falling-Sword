@@ -7,8 +7,9 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-    public int score;
-    public TextMeshProUGUI scoreText;
+    public int score, highScore;
+    public TextMeshProUGUI scoreText, highScoreText;
+    public readonly string HIGHSCORE = "HIGHSCORE";
 
     public bool isGameOver;
 
@@ -23,6 +24,18 @@ public class GameManager : MonoBehaviour
             // scoreText.text = "Score: "+ score.ToString("N0");
         }
     }
+
+    private int HighScore
+    {
+        get => highScore;
+        set
+        {
+            highScore = value;
+            //contoh menambahkan N0 bukn NO untuk memberikan titik diangka misalnya 1.000
+            highScoreText.text = $"High-Score: {highScore :N0}";
+            // scoreText.text = "Score: "+ score.ToString("N0");
+        }
+    }
     // Start is called before the first frame update
     void Awake()
     {
@@ -32,10 +45,12 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         Score = 0;
+        HighScore = PlayerPrefs.GetInt(HIGHSCORE, 0);
     }
 
     public void AddScore(int scoreValue)
     {
+        if(isGameOver) return;
         Score += scoreValue;
         
     }
@@ -53,6 +68,16 @@ public class GameManager : MonoBehaviour
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             }
+        }
+    }
+
+    public void IsGameOver()
+    {
+        isGameOver = true;
+        if (Score > HighScore)
+        {
+            HighScore = Score;
+            PlayerPrefs.SetInt(HIGHSCORE, HighScore);
         }
     }
 }

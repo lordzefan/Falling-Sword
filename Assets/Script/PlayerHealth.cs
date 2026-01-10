@@ -8,9 +8,8 @@ public class PlayerHealth : MonoBehaviour
  public int curentHealth, maxHealth;
  Animator animator;
  CharacterController characterController;
- public AudioClip swordHitSfx;
+ public AudioClip swordHitSfx, deadSfx ;
  public AudioClip []playerHitSfx;
- public AudioClip deadSfx;
  AudioSource audioSource;
  public GameObject bloodVfx;
  public Transform bloodPoint;
@@ -64,6 +63,6 @@ public class PlayerHealth : MonoBehaviour
        print("player mati"); 
        animator.Play("Death");
         characterController.enabled = false;
-        GameManager.Instance.isGameOver = true;
+        GameManager.Instance.IsGameOver();
     }
 }
